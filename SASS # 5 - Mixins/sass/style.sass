@@ -1,0 +1,87 @@
+$primary-color: #3f3f3f
+$secondary-color: #aaaaaa
+$light-color: #ffffff
+
+
+@mixin fullWidth
+    width: 100%
+    height: 100vh
+    
+@mixin mainHeading
+    color: $primary-color
+    font-size: 11em
+    margin-bottom: 2rem
+    font-weight: bold
+    letter-spacing: 1rem
+
+@mixin text
+    color: $secondary-color
+    font-size: 1.1em
+
+@mixin flex($align-items, $justify-content)
+    display: flex
+    align-items: $align-items
+    justify-content: $justify-content
+
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+    font-family: sans-serif
+    font-weight: 300
+
+body
+    width: 100%
+
+.container
+    max-width: 1400px
+    width: 90% 
+    margin: auto
+    .welcome
+        @include fullWidth      
+        @include flex(center, center)
+        .content
+            h3
+                @include text
+                margin-bottom: -1rem
+            h1
+                @include mainHeading
+            .name
+                @include text
+                text-align: right
+                span
+                    display: inline-block
+                    width: 1.5rem
+                    height: 2px
+                    background: $secondary-color
+                    margin-bottom: 4px
+
+.about-me        
+    @include fullWidth
+    @include flex(center, flex-start)
+    background: lighten($secondary-color, 32)
+    .intro 
+        width: 780px
+        &--name
+            @include mainHeading
+        &--skills
+            color: $secondary-color
+            font-size: 3em
+            margin-bottom: 1rem
+        &--desc
+            @include text
+            margin-bottom: 4rem
+        &--chat
+            display: inline-block
+            text-decoration: none
+            width: 180px
+            text-align: center
+            padding: 1rem 1.5rem
+            border-radius: 0.2rem
+            background: $primary-color
+            color: $light-color
+            transition: all 0.3s ease
+            &:hover 
+                box-shadow: 0px 15px 5px rgba(0,0,0,0.1)
+
+    
